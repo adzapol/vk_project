@@ -1,0 +1,19 @@
+[{
+    "firstName": "Запольский",
+    "middleName": "Александр",
+    "lastName": "Дмитриевич",
+    "floor": "Мужской",
+    "age": "27"
+}, {
+    "firstName": "Шевцов",
+    "middleName": "Никита",
+    "lastName": "Анатольевич",
+    "floor": "Мужской",
+    "age": "26"
+}, {
+    "firstName": "Требушкова",
+    "middleName": "Елена",
+    "lastName": "Игоревна",
+    "floor": "Женский",
+    "age": "27"
+}]

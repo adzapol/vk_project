@@ -157,7 +157,7 @@ ul {
       width: 100%; }
     .sidebar-item__title {
       text-align: center; }
-    .sidebar-item__subtitle {
+    .sidebar-item__subtitle, .sidebar-item__age {
       text-align: left;
       margin-left: 40px; }
 
