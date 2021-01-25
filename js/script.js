@@ -53,31 +53,65 @@ const people = [
         floor: 'Женский',
         age: '27',
     },
+    {
+        firstName: 'Петров',
+        middleName: 'Алексей',
+        lastName: 'Николаевич',
+        floor: 'Мужской',
+        age: '50',
+    },
+    {
+        firstName: 'Широкова',
+        middleName: 'Любовь',
+        lastName: 'Викторовна',
+        floor: 'Женский',
+        age: '40',
+    },
 ]
 
-// console.log(sidebarTitle)
-
-// sidebarTitle.textContent =
-// people[0]['firstName'] +
-//     ' ' +
-//     people[0]['middleName'] +
-//     ' ' +
-//     people[0]['lastName']
-
 function myFunc() {
-    let sidebarTitle = document.querySelectorAll('.sidebar-item__title')
-    let sidebarSubTitle = document.querySelectorAll('.sidebar-item__subtitle')
-    let sidebarAge = document.querySelectorAll('.sidebar-item__age')
+    const sidebar = document.querySelector('.sidebar') // контейнер
+    
+    for (let i = 0; i < people.length; i++) {
 
-    for (let i = 0; i < sidebarTitle.length; i++) {
-        sidebarTitle[i].textContent =
+        let item = document.createElement('div') // добавление item
+        item.classList.add('sidebar-item', 'block')
+        sidebar.appendChild(item)
+    
+        let picture = document.createElement('div') // контейнер под фото
+        picture.classList.add('sidebar-item-picture')
+        item.appendChild(picture)
+    
+        let photo = document.createElement('img') // само фото
+        photo.classList.add('sidebar-item-picture__photo')
+        photo.src = './img/photo.jpg'
+        photo.alt = 'photo'
+        picture.appendChild(photo)
+    
+        let info = document.createElement('div') // контейнер с информацией
+        info.classList.add('sidebar-item__info')
+        item.appendChild(info)
+    
+        let title = document.createElement('h3') // ФИО
+        title.classList.add('sidebar-item__title')
+        info.appendChild(title)
+    
+        let floor = document.createElement('p') // Пол
+        floor.classList.add('sidebar-item__floor')
+        info.appendChild(floor)
+    
+        let age = document.createElement('p') // Возраст
+        age.classList.add('sidebar-item__age')
+        info.appendChild(age)
+
+        title.textContent =
             people[i]['firstName'] +
             ' ' +
             people[i]['middleName'] +
             ' ' +
             people[i]['lastName']
-        sidebarSubTitle[i].textContent = 'Пол: ' + people[i]['floor']
-        sidebarAge[i].textContent = 'Возраст: ' + people[i]['age']
+        floor.textContent = 'Пол: ' + people[i]['floor']
+        age.textContent = 'Возраст: ' + people[i]['age']
     }
 }
 
