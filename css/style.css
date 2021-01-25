@@ -43,6 +43,9 @@ a {
 ul {
   padding: 0; }
 
+label {
+  cursor: pointer; }
+
 .section-outer {
   padding-left: 20px;
   padding-right: 20px;
@@ -106,24 +109,19 @@ ul {
   flex-direction: column;
   flex-basis: 20%;
   height: 750px; }
-  .filter-floor__subtitle {
+  .filter-floor__title {
+    text-align: center;
+    margin: 0 0 20px 0; }
+  .filter-floor__label {
+    display: block;
     text-align: left;
-    margin-left: 30px; }
-  .filter-age-input {
-    display: flex;
-    justify-content: space-around; }
-    .filter-age-input__style {
-      width: 80px;
-      border-radius: 5px;
-      padding: 8px; }
-  .filter-age__subtitle {
-    text-align: left;
-    margin-left: 30px; }
-  .filter-search {
-    margin-bottom: 40px; }
-    .filter-search__input {
-      padding: 10px;
-      border-radius: 5px; }
+    margin: 10px 0 15px 30px; }
+  .filter-floor__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0); }
   .filter-button {
     width: 210px;
     align-self: center;
@@ -131,6 +129,33 @@ ul {
     padding: 10px; }
   .filter-button:last-child {
     margin-bottom: 20px; }
+
+/* ---------- Радиокнопки ---------- */
+.custom-radio {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border: 2px solid darkcyan;
+  border-radius: 50%;
+  vertical-align: text-top; }
+
+.custom-radio::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in;
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: crimson;
+  border-radius: 50%; }
+
+.filter-floor__input:checked + .custom-radio::before {
+  transform: translate(-50%, -50%) scale(1); }
 
 /* / Фильтр 
 ------------------------------------------*/
