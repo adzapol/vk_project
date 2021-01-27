@@ -31,7 +31,7 @@
 
 // console.log(people[0]['firstName']) // обращение
 
-const people = [
+let people = [
     {
         firstName: 'Запольский',
         middleName: 'Александр',
@@ -69,10 +69,11 @@ const people = [
     },
 ]
 
-function myFunc() {
+
+function myFunc(array) { // функция вывода людей в контейнер
     const sidebar = document.querySelector('.sidebar') // контейнер
     
-    for (let i = 0; i < people.length; i++) {
+    for (let i = 0; i < array.length; i++) {
 
         let item = document.createElement('div') // добавление item
         item.classList.add('sidebar-item', 'block')
@@ -105,14 +106,62 @@ function myFunc() {
         info.appendChild(age)
 
         title.textContent =
-            people[i]['firstName'] +
+            array[i]['firstName'] +
             ' ' +
-            people[i]['middleName'] +
+            array[i]['middleName'] +
             ' ' +
-            people[i]['lastName']
-        floor.textContent = 'Пол: ' + people[i]['floor']
-        age.textContent = 'Возраст: ' + people[i]['age']
+            array[i]['lastName']
+        floor.textContent = 'Пол: ' + array[i]['floor']
+        age.textContent = 'Возраст: ' + array[i]['age']
     }
 }
 
-myFunc()
+myFunc(people)
+
+
+
+
+
+
+// Обработчик событий для кнопки "Применить"
+
+const btnSubmit = document.querySelector('.btn-sub')
+
+let inputMan = document.querySelector('.filter-man')
+let inputWoman = document.querySelector('.filter-woman')
+
+function handleButtonClick() {
+    
+    if (inputMan.checked) {
+        console.log('Вывести всех мужчин')
+        
+        const newPeople = []
+        for (let i = 0; i < people.length; i++) {
+            if (people[i].floor == 'Мужской') {
+                newPeople.push(people[i])
+            }
+        }
+        myFunc(newPeople)
+
+
+
+    } else if (inputWoman.checked) {
+        console.log('Вывести всех женщин')
+    } else {
+        console.log('Не выбран не один пол')
+    }
+}
+
+btnSubmit.onclick = handleButtonClick
+
+// Обработчик событий для кнопки "Сбросить"
+
+const btnReset = document.querySelector('.btn-reset')
+
+function handleButtonReset() {
+    inputMan.checked = false
+    inputWoman.checked = false
+    console.log('Сброс настроек фильтра')
+}
+
+btnReset.onclick = handleButtonReset
