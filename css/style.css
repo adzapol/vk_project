@@ -46,6 +46,9 @@ ul {
 label {
   cursor: pointer; }
 
+button {
+  outline: none; }
+
 .section-outer {
   padding-left: 20px;
   padding-right: 20px;
@@ -76,7 +79,7 @@ label {
 .block {
   display: block;
   border: 2px solid #fff;
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: 0 0 10px 5px #dddddd;
   background-color: #fff; }
 
@@ -122,6 +125,30 @@ label {
     height: 1px;
     overflow: hidden;
     clip: rect(0 0 0 0); }
+  .filter-age-input {
+    display: flex;
+    justify-content: space-around; }
+    .filter-age-input__style {
+      width: 80px;
+      border-radius: 5px;
+      padding: 8px;
+      border: 2px solid darkcyan;
+      outline: none; }
+  .filter-age__label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 15px 30px; }
+  .filter-age__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0); }
+  .filter-search {
+    margin-bottom: 40px; }
+    .filter-search__input {
+      padding: 10px;
+      border-radius: 5px; }
   .filter-button {
     width: 210px;
     align-self: center;
@@ -155,6 +182,9 @@ label {
   border-radius: 50%; }
 
 .filter-floor__input:checked + .custom-radio::before {
+  transform: translate(-50%, -50%) scale(1); }
+
+.filter-age__input:checked + .custom-radio::before {
   transform: translate(-50%, -50%) scale(1); }
 
 /* / Фильтр 
