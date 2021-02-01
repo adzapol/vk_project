@@ -171,6 +171,9 @@ let inputMan = document.querySelector('.filter-man')
 let inputWoman = document.querySelector('.filter-woman')
 
 // Фильтр - возраст
+let inputFrom = document.querySelector('.filter-from')
+let inputBefore = document.querySelector('.filter-before')
+
 let inputAgeMin18 = document.querySelector('.filter-age-min18')
 let inputAge1820 = document.querySelector('.filter-age-18-20')
 let inputAge2124 = document.querySelector('.filter-age-21-24')
@@ -197,7 +200,52 @@ function filterFoor() {
     myFunc(newPeople) 
 }
 
-// Функция для возраста
+// Функция для возраста от и до
+function filterAgeFromBefore() {
+    
+    let newPeople = people.filter(person => {
+        if (person.age >= inputFrom.value) {
+            console.log('Вывести всех людей с возрастом от ' + inputFrom.value)
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } 
+        
+        // else if (person.age <= inputBefore.value) {
+        //     console.log('Вывести всех людей с возрастом до ' + inputBefore.value)
+        //     const sidebar = document.querySelector('.sidebar')
+        //     sidebar.innerHTML = ''
+        //     return true
+        // } else if (person.age >= inputFrom.value && person.age <= inputBefore.value) {
+        //     console.log('Вывести всех людей с возрастом от ' + inputFrom.value + ' до ' + inputBefore.value)
+        //     const sidebar = document.querySelector('.sidebar')
+        //     sidebar.innerHTML = ''
+        //     return true
+        // }
+    })
+    myFunc(newPeople) 
+}
+
+// function filterAgeBefore() {
+    
+//     let newPeople = people.filter(person => {
+//         if (person.age <= inputBefore.value) {
+//             console.log('Вывести всех людей с возрастом от ' + inputFrom.value + ' до ' + inputBefore.value)
+//             const sidebar = document.querySelector('.sidebar')
+//             sidebar.innerHTML = ''
+//             return true
+//         } 
+//     })
+//     myFunc(newPeople) 
+// }
+
+
+// function filterAgeBeforeAll() {
+//     if () {
+
+//     }
+// }
+
 function filterAge() {
     
     let newPeople = people.filter(person => {
@@ -216,7 +264,7 @@ function filterAge() {
             const sidebar = document.querySelector('.sidebar')
             sidebar.innerHTML = ''
             return true
-        } else if (inputAgeMore.checked && person.age >= 24) {
+        } else if (inputAgeMore.checked && person.age > 25) {
             console.log('Вывести всех людей с возрастом более 25 лет')
             const sidebar = document.querySelector('.sidebar')
             sidebar.innerHTML = ''
@@ -228,8 +276,73 @@ function filterAge() {
     myFunc(newPeople) 
 }
 
-btnSubmit.addEventListener('click', filterFoor)
-btnSubmit.addEventListener('click', filterAge)
+// Функция для пола и возраста
+function filerFloorAgeFunc () {
+    let newPeople = people.filter(person => {
+        if (inputMan.checked && person.floor == 'Мужской' && inputAgeMin18.checked && person.age < 18) {
+            console.log('Вывести всех мужчин с возрастом ниже 18 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputMan.checked && person.floor == 'Мужской' && inputAge1820.checked && person.age >= 18 && person.age <= 20) {
+            console.log('Вывести всех мужчин с возрастом от 18 до 20 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputMan.checked && person.floor == 'Мужской' && inputAge2124.checked && person.age >= 21 && person.age <= 24) {
+            console.log('Вывести всех мужчин с возрастом от 21 до 24 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputMan.checked && person.floor == 'Мужской' && inputAgeMore.checked && person.age > 25) {
+            console.log('Вывести всех мужчин с возрастом более 25 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAgeMin18.checked && person.age < 18) {
+            console.log('Вывести всех женщин с возрастом ниже 18 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAge1820.checked && person.age >= 18 && person.age <= 20) {
+            console.log('Вывести всех женщин с возрастом от 18 до 20 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAge2124.checked && person.age >= 21 && person.age <= 24) {
+            console.log('Вывести всех женщин с возрастом от 21 до 24 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAgeMore.checked && person.age > 25) {
+            console.log('Вывести всех женщин с возрастом более 25 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        }
+    })
+    myFunc(newPeople) 
+}
+
+// Функция отбора по нескольким полям
+function filter () {
+    if ((inputMan.checked || inputWoman.checked) && (inputAgeMin18.checked || inputAge1820.checked || inputAge2124.checked || inputAgeMore.checked)) {
+        return filerFloorAgeFunc(),
+        console.log('Возвращаем filterFoor() и filterAge()')
+    } else if (inputMan.checked || inputWoman.checked) {
+        return filterFoor(),
+        console.log('Возвращаем filterFoor()')
+    } else if (inputAgeMin18.checked || inputAge1820.checked || inputAge2124.checked || inputAgeMore.checked) {
+        return filterAge(),
+        console.log('Возвращаем filterAge()')
+    }
+}
+
+// ----------------------------------------
+// Обработчик событий для кнопки "Применить"
+// ----------------------------------------
+
+btnSubmit.addEventListener('click', filter)
 
 // ----------------------------------------
 // Обработчик событий для кнопки "Сбросить"
@@ -244,6 +357,8 @@ function handleButtonReset() {
     inputAge1820.checked = false
     inputAge2124.checked = false
     inputAgeMore.checked = false
+    inputFrom.value = ''
+    inputBefore.value = ''
     
     const sidebar = document.querySelector('.sidebar')
     sidebar.innerHTML = ''
