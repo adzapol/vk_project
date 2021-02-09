@@ -236,7 +236,89 @@ btnSubmit.addEventListener('click', filterAgeBefore)
 
 
 
+// function filterAgeBeforeAll() {
+//     if () {
 
+//     }
+// }
+
+function filterAge() {
+    
+    let newPeople = people.filter(person => {
+        if (inputAgeMin18.checked && person.age < 18) {
+            console.log('Вывести всех людей с возрастом ниже 18 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputAge1820.checked && person.age >= 18 && person.age <= 20) {
+            console.log('Вывести всех людей с возрастом от 18 до 20 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputAge2124.checked && person.age >= 21 && person.age <= 24) {
+            console.log('Вывести всех людей с возрастом от 21 до 24 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputAgeMore.checked && person.age > 25) {
+            console.log('Вывести всех людей с возрастом более 25 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputAgeMin18.checked == false && inputAge1820.checked == false && inputAge2124.checked == false && inputAgeMore.checked == false) {
+            console.log('Не выбран не один возраст')
+        }
+    })
+    myFunc(newPeople) 
+}
+
+// Функция для пола и возраста
+function filerFloorAgeFunc () {
+    let newPeople = people.filter(person => {
+        if (inputMan.checked && person.floor == 'Мужской' && inputAgeMin18.checked && person.age < 18) {
+            console.log('Вывести всех мужчин с возрастом ниже 18 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputMan.checked && person.floor == 'Мужской' && inputAge1820.checked && person.age >= 18 && person.age <= 20) {
+            console.log('Вывести всех мужчин с возрастом от 18 до 20 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputMan.checked && person.floor == 'Мужской' && inputAge2124.checked && person.age >= 21 && person.age <= 24) {
+            console.log('Вывести всех мужчин с возрастом от 21 до 24 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputMan.checked && person.floor == 'Мужской' && inputAgeMore.checked && person.age > 25) {
+            console.log('Вывести всех мужчин с возрастом более 25 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAgeMin18.checked && person.age < 18) {
+            console.log('Вывести всех женщин с возрастом ниже 18 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAge1820.checked && person.age >= 18 && person.age <= 20) {
+            console.log('Вывести всех женщин с возрастом от 18 до 20 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAge2124.checked && person.age >= 21 && person.age <= 24) {
+            console.log('Вывести всех женщин с возрастом от 21 до 24 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } else if (inputWoman.checked && person.floor == 'Женский' && inputAgeMore.checked && person.age > 25) {
+            console.log('Вывести всех женщин с возрастом более 25 лет')
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        }
+    })
+    myFunc(newPeople) 
+}
 
 
 
