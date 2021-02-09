@@ -35,13 +35,30 @@
                     <div class="filter-age">
                         <h3 class="filter-age__title">Возраст</h3>
                         <div class="filter-age-input">
-                            <input class="filter-age-input__style" placeholder="от" type="text">
-                            <input class="filter-age-input__style" placeholder="до" type="text">
+                            <input class="filter-age-input__style filter-from" name="ageFrom" placeholder="от" type="number" min="0" max="120">
+                            <input class="filter-age-input__style filter-before" name="ageFrom" placeholder="до" type="number" min="0" max="120">
                         </div>
-                        <p class="filter-subtitle"><input name="18" type="radio" value="18">Менее 18 лет</p>
-                        <p class="filter-subtitle"><input name="20" type="radio" value="20">18-20</p>
-                        <p class="filter-subtitle"><input name="24" type="radio" value="24">20-24</p>
-                        <p class="filter-subtitle"><input name="more" type="radio" value="more">24 и более</p>
+                        <label class="filter-age__label">
+                            <input class="filter-age__input filter-age-min18" name="age" type="radio" value="18">
+                            <span class="custom-radio"></span>
+                            Менее 18 лет
+                        </label>
+                        <label class="filter-age__label">
+                            <input class="filter-age__input filter-age-18-20" name="age" type="radio" value="18-20">
+                            <span class="custom-radio"></span>
+                            18-20
+                        </label>
+                        <label class="filter-age__label">
+                            <input class="filter-age__input filter-age-21-24" name="age" type="radio" value="21-24">
+                            <span class="custom-radio"></span>
+                            21-24
+                        </label>
+                        <label class="filter-age__label">
+                            <input class="filter-age__input filter-age-more" name="age" type="radio" value="more">
+                            <span class="custom-radio"></span>
+                            Более 25
+                        </label>
+
                         <span class="line"></span>
                     </div>
                     <div class="filter-search">

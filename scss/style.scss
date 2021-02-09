@@ -1,0 +1,233 @@
+/* -- Import -- */
+
+@import 'variables';
+@import 'mixins.scss';
+@import 'fonts.scss';
+
+/* -- / Import -- */
+
+/* -- Common -- */
+* {
+    @include Circle;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a {
+    color: $color-white;
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+}
+.section-outer {
+    // внешний блок
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: $color-bg;
+    height: 100%;
+}
+.section-inner {
+    // внутренний блок
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.line {
+    display: block;
+    height: 1px;
+    width: 90%;
+    border-top: 1px solid $color-black;
+    margin-left: 10px;
+}
+.filter-subtitle {
+    text-align: left;
+    margin-left: 30px;
+}
+
+/* wrapper 
+--------------------------------------------------------------------*/
+.section-title {
+    margin: 0;
+    padding-top: 40px;
+}
+.block {
+    display: block;
+    border: 2px solid $color-white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    background-color: $color-white;
+}
+
+.btn__color {
+    color: $color-white;
+    background-color: $color-button;
+    border-color: $color-button;
+}
+
+/* Сортировка 
+------------------------------------------*/
+.sort {
+    margin-top: 20px;
+}
+.sort-label {
+    display: block;
+    padding: 20px 0 20px 20px;
+}
+/* / Сортировка 
+------------------------------------------*/
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Фильтр 
+------------------------------------------*/
+.filter {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    height: 750px;
+    &-floor {
+        &__title {
+            text-aligN: center;
+            margin: 0 0 20px 0;
+        }
+        &__label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 15px 30px;
+        }
+        &__input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+        }
+    }
+    &-age {
+        &-input {
+            display: flex;
+            justify-content: space-around;
+            &__style {
+                width: 80px;
+                border-radius: 5px;
+                padding: 8px;
+                border: 2px solid darkcyan;
+                outline: none;
+            }
+        }
+        &__label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 15px 30px;
+        }
+        &__input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+        }
+    }
+    &-search {
+        margin-bottom: 40px;
+        &__input {
+            padding: 10px;
+            border-radius: 5px;
+        }
+    }
+    &-button {
+        width: 210px;
+        align-self: center;
+        margin-top: 20px;
+        padding: 10px;
+    }
+    &-button:last-child {
+        margin-bottom: 20px;
+    }
+}
+
+/* / Фильтр 
+------------------------------------------*/
+
+/* ---------- Радиокнопки ---------- */
+
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 2px solid darkcyan;
+    border-radius: 50%;
+    vertical-align: text-top; 
+}
+.custom-radio::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in;
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: crimson;
+    border-radius: 50%; 
+}
+.filter-floor__input:checked + .custom-radio::before {
+    transform: translate(-50%, -50%) scale(1); 
+}
+.filter-age__input:checked + .custom-radio::before {
+    transform: translate(-50%, -50%) scale(1); 
+}
+
+/* sidebar 
+------------------------------------------*/
+.sidebar {
+    flex-basis: 77%;
+    &-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        &-picture {
+            width: 120px;
+            height: 100px;
+            border-radius: 5px;
+            margin-left: 20px;
+            background-color: darkcyan;
+            &__photo {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+            }
+        }
+        &__info {
+            width: 100%;
+        }
+        &__title {
+            text-align: center;
+        }
+        &__floor {
+            text-align: left;
+            margin-left: 40px;
+        }
+        &__subtitle,
+        &__age {
+            text-align: left;
+            margin-left: 40px;
+        }
+    }
+}
+
+/* / sidebar 
+------------------------------------------*/
+
+/* / wrapper (заголовок ленты)
+--------------------------------------------------------------------*/
