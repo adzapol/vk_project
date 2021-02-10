@@ -379,15 +379,20 @@ label {
 button {
   outline: none; }
 
-.section-outer {
+.section--outer {
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 20px; }
+
+.body {
   background-color: #f6f6f6;
   height: 100%; }
 
-.section-inner {
-  max-width: 1280px;
+.section--inner {
   margin: 0 auto; }
+
+.main {
+  max-width: 1280px;
+  min-width: 700px; }
 
 .line {
   display: block;
@@ -402,38 +407,38 @@ button {
 
 /* wrapper 
 --------------------------------------------------------------------*/
-.section-title {
+.section__title {
   margin: 0;
   padding-top: 40px; }
 
-.block {
+.--block {
   display: block;
   border: 2px solid #fff;
   border-radius: 7px;
   box-shadow: 0 0 10px 5px #dddddd;
   background-color: #fff; }
 
-.btn__color {
+.btn--color {
   color: #fff;
   background-color: darkcyan;
   border-color: darkcyan; }
 
 /* Сортировка 
 ------------------------------------------*/
-.sort {
+.sorting {
   margin-top: 20px; }
-
-.sort-label {
-  display: block;
-  padding: 20px 0 20px 20px; }
+  .sorting__label {
+    display: block;
+    padding: 20px 0 20px 20px; }
 
 /* / Сортировка 
 ------------------------------------------*/
 .content {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
   text-align: center; }
+  .content--mt {
+    margin-top: 20px; }
 
 /* Фильтр 
 ------------------------------------------*/
@@ -441,44 +446,10 @@ button {
   display: flex;
   flex-direction: column;
   flex-basis: 20%;
-  height: 750px; }
-  .filter-floor__title {
-    text-align: center;
-    margin: 0 0 20px 0; }
-  .filter-floor__label {
-    display: block;
-    text-align: left;
-    margin: 10px 0 15px 30px; }
-  .filter-floor__input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0); }
-  .filter-age-input {
-    display: flex;
-    justify-content: space-around; }
-    .filter-age-input__style {
-      width: 80px;
-      border-radius: 5px;
-      padding: 8px;
-      border: 2px solid darkcyan;
-      outline: none; }
-  .filter-age__label {
-    display: block;
-    text-align: left;
-    margin: 10px 0 15px 30px; }
-  .filter-age__input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0); }
-  .filter-search {
+  height: 750px;
+  min-width: 252px; }
+  .filter__search {
     margin-bottom: 40px; }
-    .filter-search__input {
-      padding: 10px;
-      border-radius: 5px; }
   .filter-button {
     width: 210px;
     align-self: center;
@@ -486,6 +457,53 @@ button {
     padding: 10px; }
   .filter-button:last-child {
     margin-bottom: 20px; }
+
+.filer--mr {
+  margin-right: 20px; }
+
+.floor__title {
+  text-align: center;
+  margin: 0 0 20px 0; }
+
+.floor__label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 15px 30px; }
+
+.floor__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0); }
+
+.age__inp {
+  display: flex;
+  justify-content: space-around; }
+  .age__inp--style {
+    width: 80px;
+    border-radius: 5px;
+    padding: 8px;
+    border: 2px solid darkcyan;
+    outline: none; }
+
+.age__label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 15px 30px; }
+
+.age__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0); }
+
+.search__input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid darkcyan;
+  outline: none; }
 
 /* ---------- Радиокнопки ---------- */
 .custom-radio {
@@ -511,10 +529,10 @@ button {
   background-color: crimson;
   border-radius: 50%; }
 
-.filter-floor__input:checked + .custom-radio::before {
+.floor__input:checked + .custom-radio::before {
   transform: translate(-50%, -50%) scale(1); }
 
-.filter-age__input:checked + .custom-radio::before {
+.age__input:checked + .custom-radio::before {
   transform: translate(-50%, -50%) scale(1); }
 
 /* / Фильтр 
@@ -527,12 +545,12 @@ button {
     display: flex;
     align-items: center;
     margin-bottom: 20px; }
-    .sidebar-item-picture {
+    .sidebar-item__picture {
       width: 120px;
       height: 100px;
       margin-left: 20px;
       background-color: darkcyan; }
-      .sidebar-item-picture__photo {
+      .sidebar-item__picture--photo {
         display: block;
         width: 100%;
         height: 100%; }

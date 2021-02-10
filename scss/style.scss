@@ -1,0 +1,249 @@
+/* -- Import -- */
+
+@import 'variables';
+@import 'mixins.scss';
+@import 'fonts.scss';
+
+/* -- / Import -- */
+
+/* -- Common -- */
+* {
+    @include Circle;
+    box-sizing: border-box;
+    
+}
+li {
+    list-style: none;
+}
+a {
+    color: $color-white;
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+}
+label {
+    cursor: pointer;
+}
+button {
+    outline: none;
+}
+.section--outer { // внешний блок
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.body {
+    background-color: $color-bg;
+    height: 100%;
+}
+.section--inner { // внутренний блок
+    margin: 0 auto;
+}
+.main {
+    max-width: 1280px;
+    min-width: 700px;
+}
+.line {
+    display: block;
+    height: 1px;
+    width: 90%;
+    border-top: 1px solid $color-black;
+    margin-left: 10px;
+}
+.filter-subtitle {
+    text-align: left;
+    margin-left: 30px;
+}
+
+/* wrapper 
+--------------------------------------------------------------------*/
+.section__title {
+    margin: 0;
+    padding-top: 40px;
+}
+.--block {
+    display: block;
+    border: 2px solid $color-white;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    background-color: $color-white;
+}
+
+.btn--color {
+    color: $color-white;
+    background-color: $color-brend;
+    border-color:$color-brend;
+}
+
+/* Сортировка 
+------------------------------------------*/
+.sorting {
+    margin-top: 20px;
+    &__label {
+        display: block;
+        padding: 20px 0 20px 20px;
+    }
+}
+/* / Сортировка 
+------------------------------------------*/
+.content {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    &--mt {
+        margin-top: 20px;
+    }
+}
+/* Фильтр 
+------------------------------------------*/
+.filter {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    height: 750px;
+    min-width: 252px;
+    &__search {
+        margin-bottom: 40px;
+    }
+    &-button {
+        width: 210px;
+        align-self: center;
+        margin-top: 20px;
+        padding: 10px;
+    }
+    &-button:last-child {
+        margin-bottom: 20px;
+    }
+}
+.filer--mr {
+    margin-right: 20px;
+}
+.floor {
+    &__title {
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+    &__label {
+        display: block;
+        text-align: left;
+        margin: 10px 0 15px 30px;
+    }
+    &__input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+}
+.age {
+    &__inp {
+        display: flex;
+        justify-content: space-around;
+        &--style {
+            width: 80px;
+            border-radius: 5px;
+            padding: 8px;
+            border: 2px solid $color-brend;
+            outline: none; // убираем обводку
+        }
+    }
+    &__label { // менее 18 лет
+        display: block;
+        text-align: left;
+        margin: 10px 0 15px 30px;
+    }
+    &__input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+}
+.search {
+    &__input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid $color-brend;
+        outline: none; // убираем обводку
+    }
+}
+/* ---------- Радиокнопки ---------- */
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: $color-white;
+    border: 2px solid $color-brend;
+    border-radius: 50%;
+    vertical-align: text-top;
+}
+.custom-radio::before {    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in;
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $color-brand-active;
+    border-radius: 50%;
+}
+.floor__input:checked + .custom-radio::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+.age__input:checked + .custom-radio::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+/* / Фильтр 
+------------------------------------------*/
+
+
+/* sidebar 
+------------------------------------------*/
+.sidebar {
+    flex-basis: 77%;
+    &-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        &__picture {
+            width: 120px;
+            height: 100px;
+            margin-left: 20px;
+            background-color: darkcyan;
+            &--photo {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__info {
+            width: 100%;
+        }
+        &__title {
+            text-align: center;
+        }
+        &__floor {
+            text-align: left;
+            margin-left: 40px;
+        }
+        &__age {
+            text-align: left;
+            margin-left: 40px;
+        }
+    }
+}
+
+/* / sidebar 
+------------------------------------------*/
+
+
+
+
+/* / wrapper (заголовок ленты)
+--------------------------------------------------------------------*/

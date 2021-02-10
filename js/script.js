@@ -1,36 +1,3 @@
-// const requestURL = '../people.json' // http://jsonplaceholder.typicode.com/users ../object.json
-
-// let sidebarTitle = document.querySelector('.sidebar-item__title')
-
-// function sendRequest(method, url) {
-//     return new Promise((resolve, reject) => {
-//         const xhr = new XMLHttpRequest()
-
-//         xhr.open(method, url)
-
-//         xhr.responseType = 'json'
-//         xhr.onload = () => {
-//             if (xhr.status >= 400) {
-//                 reject(xhr.response)
-//             } else {
-//                 resolve(xhr.response)
-//             }
-//         }
-
-//         xhr.onerror = () => {
-//             reject(xhr.response)
-//         }
-
-//         xhr.send()
-//     })
-// }
-
-// sendRequest('GET', requestURL)
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err))
-
-// console.log(people[0]['firstName']) // обращение
-
 let people = [
     {
         firstName: 'Запольский',
@@ -111,22 +78,50 @@ let people = [
     }
 ]
 
-function myFunc(array) { // функция вывода людей в контейнер
+// --------------------------------------------
+// Объявление переменных
+// --------------------------------------------
+
+// Фильтр: пол
+let inputMan = document.querySelector('.filter--man')
+let inputWoman = document.querySelector('.filter--woman')
+
+// Фильтр: возраст
+let inputFrom = document.querySelector('.filter-from')
+let inputBefore = document.querySelector('.filter-before')
+
+let inputAgeMin18 = document.querySelector('.age--min18')
+let inputAge1820 = document.querySelector('.age--18-20')
+let inputAge2124 = document.querySelector('.age--21-24')
+let inputAgeMore = document.querySelector('.age--more')
+
+// Фильтр: поиск по Фамилии
+let inputSearch = document.querySelector('.search__input')
+
+// Кнопки "Применить" и "Сбросить"
+const btnSubmit = document.querySelector('.btn--sub')
+const btnReset = document.querySelector('.btn--reset')
+
+// --------------------------------------------
+// Функция: вывод всего массива в HTML
+// --------------------------------------------
+
+function myFunc(array) {
 
     const sidebar = document.querySelector('.sidebar') // контейнер
     
     for (let i = 0; i < array.length; i++) {
 
         let item = document.createElement('div') // добавление item
-        item.classList.add('sidebar-item', 'block')
+        item.classList.add('sidebar-item', '--block')
         sidebar.appendChild(item)
     
         let picture = document.createElement('div') // контейнер под фото
-        picture.classList.add('sidebar-item-picture')
+        picture.classList.add('sidebar-item__picture')
         item.appendChild(picture)
     
-        let photo = document.createElement('img') // само фото
-        photo.classList.add('sidebar-item-picture__photo')
+        let photo = document.createElement('img') // фотография
+        photo.classList.add('sidebar-item__picture--photo')
         photo.src = './img/photo.jpg'
         photo.alt = 'photo'
         picture.appendChild(photo)
@@ -160,26 +155,10 @@ function myFunc(array) { // функция вывода людей в конте
 
 myFunc(people) // первоначальная загрузка страницы
 
-// ----------------------------------------
-// Обработчик событий для кнопки "Применить"
-// ----------------------------------------
+// --------------------------------------------
+// Функция: вывод массива по полу
+// --------------------------------------------
 
-const btnSubmit = document.querySelector('.btn-sub')
-
-// Фильтр - пол
-let inputMan = document.querySelector('.filter-man')
-let inputWoman = document.querySelector('.filter-woman')
-
-// Фильтр - возраст
-let inputFrom = document.querySelector('.filter-from')
-let inputBefore = document.querySelector('.filter-before')
-
-let inputAgeMin18 = document.querySelector('.filter-age-min18')
-let inputAge1820 = document.querySelector('.filter-age-18-20')
-let inputAge2124 = document.querySelector('.filter-age-21-24')
-let inputAgeMore = document.querySelector('.filter-age-more')
-
-// Функция для пола
 function filterFoor() {
     
     let newPeople = people.filter(person => {
@@ -200,51 +179,42 @@ function filterFoor() {
     myFunc(newPeople) 
 }
 
-// Функция для возраста от и до
-function filterAgeFromBefore() {
+// ------------------------------------------------
+// Функция: вывод массива по возрасту (ОТ и ДО)
+// ------------------------------------------------
+
+// Функция: вывод массива по возрасту "ОТ"
+function filterAgeFrom() {
     
     let newPeople = people.filter(person => {
-        if (person.age >= inputFrom.value) {
+        if (inputFrom.value <= person.age) {
             console.log('Вывести всех людей с возрастом от ' + inputFrom.value)
             const sidebar = document.querySelector('.sidebar')
             sidebar.innerHTML = ''
             return true
         } 
-        
-        // else if (person.age <= inputBefore.value) {
-        //     console.log('Вывести всех людей с возрастом до ' + inputBefore.value)
-        //     const sidebar = document.querySelector('.sidebar')
-        //     sidebar.innerHTML = ''
-        //     return true
-        // } else if (person.age >= inputFrom.value && person.age <= inputBefore.value) {
-        //     console.log('Вывести всех людей с возрастом от ' + inputFrom.value + ' до ' + inputBefore.value)
-        //     const sidebar = document.querySelector('.sidebar')
-        //     sidebar.innerHTML = ''
-        //     return true
-        // }
     })
     myFunc(newPeople) 
 }
 
-// function filterAgeBefore() {
+// Функция: вывод массива по возрасту "ДО"
+function filterAgeBefore() {
     
-//     let newPeople = people.filter(person => {
-//         if (person.age <= inputBefore.value) {
-//             console.log('Вывести всех людей с возрастом от ' + inputFrom.value + ' до ' + inputBefore.value)
-//             const sidebar = document.querySelector('.sidebar')
-//             sidebar.innerHTML = ''
-//             return true
-//         } 
-//     })
-//     myFunc(newPeople) 
-// }
+    let newPeople = people.filter(person => {
+        if (inputBefore.value >= person.age) {
+            console.log('Вывести всех людей с возрастом до ' + inputBefore.value)
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.innerHTML = ''
+            return true
+        } 
+    })
+    myFunc(newPeople) 
+}
 
 
-// function filterAgeBeforeAll() {
-//     if () {
-
-//     }
-// }
+// ------------------------------------------------
+// Функция: вывод массива по возрасту
+// ------------------------------------------------
 
 function filterAge() {
     
@@ -276,7 +246,10 @@ function filterAge() {
     myFunc(newPeople) 
 }
 
-// Функция для пола и возраста
+// ------------------------------------------------
+// Функция: вывод массива по полу и возрасту
+// ------------------------------------------------
+
 function filerFloorAgeFunc () {
     let newPeople = people.filter(person => {
         if (inputMan.checked && person.floor == 'Мужской' && inputAgeMin18.checked && person.age < 18) {
@@ -324,7 +297,10 @@ function filerFloorAgeFunc () {
     myFunc(newPeople) 
 }
 
-// Функция отбора по нескольким полям
+// ------------------------------------------------
+// Функция: отбор по нескольким выбранным полям
+// ------------------------------------------------
+
 function filter () {
     if ((inputMan.checked || inputWoman.checked) && (inputAgeMin18.checked || inputAge1820.checked || inputAge2124.checked || inputAgeMore.checked)) {
         return filerFloorAgeFunc(),
@@ -335,20 +311,26 @@ function filter () {
     } else if (inputAgeMin18.checked || inputAge1820.checked || inputAge2124.checked || inputAgeMore.checked) {
         return filterAge(),
         console.log('Возвращаем filterAge()')
+    } 
+    else if (inputFrom.value > 0) {
+        return filterAgeFrom(),
+        console.log('Возвращаем filterAgeFrom()')
+    } 
+    else if (inputBefore.value >= 0) {
+        return filterAgeBefore(),
+        console.log('Возвращаем filterAgeBefore()')
     }
 }
 
-// ----------------------------------------
+// --------------------------------------------
 // Обработчик событий для кнопки "Применить"
-// ----------------------------------------
+// --------------------------------------------
 
 btnSubmit.addEventListener('click', filter)
 
-// ----------------------------------------
+// --------------------------------------------
 // Обработчик событий для кнопки "Сбросить"
-// ----------------------------------------
-
-const btnReset = document.querySelector('.btn-reset')
+// --------------------------------------------
 
 function handleButtonReset() {
     inputMan.checked = false
@@ -359,6 +341,7 @@ function handleButtonReset() {
     inputAgeMore.checked = false
     inputFrom.value = ''
     inputBefore.value = ''
+    inputSearch.value = ''
     
     const sidebar = document.querySelector('.sidebar')
     sidebar.innerHTML = ''
@@ -367,4 +350,4 @@ function handleButtonReset() {
     console.log('Сброс настроек фильтра')
 }
 
-btnReset.onclick = handleButtonReset
+btnReset.addEventListener('click', handleButtonReset)

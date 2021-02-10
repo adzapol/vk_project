@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,65 +8,64 @@
 </head>
 <body>
     <!--wrapper-->
-    <section class="section-outer">
-        <div class="section-inner">
-            <h1 class="section-title">Количество человек: 2292</h1>
-            <div class="sort block">
-                <span class="sort-label">Сортировать:</span>
+    <section class="body section--outer">
+        <div class="main section--inner">
+            <h1 class="section__title">Количество человек: 2292</h1>
+            <div class="sorting --block">
+                <span class="sorting__label">Сортировать:</span>
             </div>
-            <div class="content">
-                <div class="filter block">
+            <div class="content content--mt">
+                <div class="filter filer--mr --block">
                     <h2>Фильтр</h2>
-                    <div class="filter-floor">
-                        <h3 class="filter-floor__title">Пол</h3>    
-                        <label class="filter-floor__label">                                                
-                            <input class="filter-floor__input filter-man" name="floor" type="radio" value="man">
+                    <div class="floor filter__floor">
+                        <h3 class="floor__title">Пол</h3>    
+                        <label class="floor__label">                                                
+                            <input class="floor__input filter--man" name="floor" type="radio" value="man">
                             <span class="custom-radio"></span>
                             Мужской
                         </label>
-                        <label class="filter-floor__label">
-                            <input class="filter-floor__input filter-woman" name="floor" type="radio" value="woman">
+                        <label class="floor__label">
+                            <input class="floor__input filter--woman" name="floor" type="radio" value="woman">
                             <span class="custom-radio"></span>
                             Женский
                         </label>
-                        
                         <span class="line"></span>
                     </div>
-                    <div class="filter-age">
-                        <h3 class="filter-age__title">Возраст</h3>
-                        <div class="filter-age-input">
-                            <input class="filter-age-input__style filter-from" name="ageFrom" placeholder="от" type="number" min="0" max="120">
-                            <input class="filter-age-input__style filter-before" name="ageFrom" placeholder="до" type="number" min="0" max="120">
+                    <div class="age filter__age">
+                        <h3 class="age__title">Возраст</h3>
+                        <div class="age__inp">
+                            <input class="age__inp--style filter-from" name="ageFrom" placeholder="от" type="number" value="0">
+                            <input class="age__inp--style filter-before" name="ageFrom" placeholder="до" type="number" value="0">
                         </div>
-                        <label class="filter-age__label">
-                            <input class="filter-age__input filter-age-min18" name="age" type="radio" value="18">
+                        <label class="age__label">
+                            <input class="age__input age--min18" name="age" type="radio" value="18">
                             <span class="custom-radio"></span>
                             Менее 18 лет
                         </label>
-                        <label class="filter-age__label">
-                            <input class="filter-age__input filter-age-18-20" name="age" type="radio" value="18-20">
+                        <label class="age__label">
+                            <input class="age__input age--18-20" name="age" type="radio" value="18-20">
                             <span class="custom-radio"></span>
                             18-20
                         </label>
-                        <label class="filter-age__label">
-                            <input class="filter-age__input filter-age-21-24" name="age" type="radio" value="21-24">
+                        <label class="age__label">
+                            <input class="age__input age--21-24" name="age" type="radio" value="21-24">
                             <span class="custom-radio"></span>
                             21-24
                         </label>
-                        <label class="filter-age__label">
-                            <input class="filter-age__input filter-age-more" name="age" type="radio" value="more">
+                        <label class="age__label">
+                            <input class="age__input age--more" name="age" type="radio" value="more">
                             <span class="custom-radio"></span>
                             Более 25
                         </label>
 
                         <span class="line"></span>
                     </div>
-                    <div class="filter-search">
-                        <h3 class="filter-search__title">Поиск по фамилии</h3>
-                        <input class="filter-search__input" placeholder="Введите фамилию" type="text">
+                    <div class="search filter__search">
+                        <h3 class="search__title">Поиск по фамилии</h3>
+                        <input class="search__input" placeholder="Введите фамилию" type="text">
                     </div>
-                    <button class="filter-button block btn__color btn-sub" type="submit">Применить</button>
-                    <button class="filter-button block btn-reset" type="reset">Сбросить</button>
+                    <button class="filter-button --block btn--color btn--sub" type="submit">Применить</button>
+                    <button class="filter-button --block btn--reset" type="reset">Сбросить</button>
                 </div>
                 <div class="sidebar"></div>
             </div>
